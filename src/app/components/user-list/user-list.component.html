@@ -1,0 +1,87 @@
+<div class="ag-format-container" *ngIf="stats">
+  <div class="ag-courses_box">
+
+    
+    <div class="ag-courses_item">
+      <a href="/admin/users" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg bg-pink"></div>
+        <div class="ag-courses-item_title">
+          Total Users
+        </div>
+        <div class="ag-courses-item_date-box">
+          Count:
+          <span class="ag-courses-item_date">{{ stats.totalUsers }}</span>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="ag-courses_item">
+      <a href="/admin/users" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg bg-blue"></div>
+        <div class="ag-courses-item_title">
+          Total Projects
+        </div>
+        <div class="ag-courses-item_date-box">
+          Count:
+          <span class="ag-courses-item_date">{{ stats.totalProjects }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="ag-courses_item">
+      <a href="/admin/users" class="ag-courses-item_link">
+        <div class="ag-courses-item_bg bg-purple"></div>
+        <div class="ag-courses-item_title">
+          Completed Tasks on Time
+        </div>
+        <div class="ag-courses-item_date-box">
+          Count:
+          <span class="ag-courses-item_date">{{ stats.totalRewards }}</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class="custom-table-container">
+    <div class="search-bar">
+        <input
+          type="search"
+          [(ngModel)]="searchtext"
+          id="form1"
+          class="search-input"
+          placeholder="🔍 Search "
+          aria-label="search"
+        />
+      </div>
+    
+    <table class="custom-table">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">UserName</th>
+          <th scope="col">Name</th>
+          <th scope="col">Cin</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let user of users |filter:searchtext">
+          <td>{{user.idUser}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.cin}}</td>
+          <td>
+            <div style="display: flex; gap: 10px;"> 
+            <button class="custom-button " (click)="redirectToReward(user.idUser)">Reward History</button>
+            <button class="custom-button secondary" (click)="redirectToProductivity(user.idUser)">
+              Productivity
+            </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

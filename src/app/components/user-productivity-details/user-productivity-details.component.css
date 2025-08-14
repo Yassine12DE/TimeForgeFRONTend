@@ -1,0 +1,73 @@
+.productivity-container {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh; /* ensures full-screen background */
+    transition: background 0.5s ease, color 0.5s ease; /* smooth transition */
+  }
+  
+  .charts-wrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .chart-card {
+    flex: 1;
+    min-width: 320px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Light mode background and text */
+  .lightMode {
+    background-color: #f7f7f7;
+    color: #000;
+  }
+  
+  /* Dark mode with gradient background and white text */
+  .darkMode {
+    background: linear-gradient(to bottom, #3a3a3a, #000000);
+    color: #fff;
+  }
+  
+  /* General button style */
+  button {
+    background-color: rgb(81, 59, 80);
+    border: none;
+    color: #fff;
+  }
+  
+  /* Position the button to top-right */
+  .top-bar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Base styles for the toggle button */
+  .toggle-btn {
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 8px rgb(4, 4, 4);
+  }
+  
+  /* Button style in light mode */
+  .lightMode .toggle-btn {
+    background-color: #000000;  /* black button in light mode */
+    color: #ffffff;            /* white text in light mode */
+  }
+  
+  /* Button style in dark mode */
+  .darkMode .toggle-btn {
+    background-color: #ffffff; /* white button in dark mode */
+    color: #ffffff;            /* black text in dark mode */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1); /* slight glow effect */
+  }
+  

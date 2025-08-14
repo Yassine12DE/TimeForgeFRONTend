@@ -1,0 +1,87 @@
+.custom-table-container {
+  display: flex;
+  flex-direction: column; /* stack table and card vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 4rem;
+  gap: 24px; /* space between table and card */
+}
+  
+  .custom-table {
+    width: 100%;
+    max-width: 1200px; 
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 1.5rem; /* more padding */
+    text-align: left;
+    font-size: 1.3rem; /* larger text */
+    color: #0f0000;
+  }
+  
+  .custom-table thead {
+    background-color: #f35525; /* keep the orange */
+    color: #ffffff;
+    font-size: 1.4rem;
+  }
+  
+  .custom-table tbody tr {
+    border-bottom: 1px solid #f1f1f1;
+    transition: background-color 0.2s ease;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #fff3e6;
+  }
+
+  .custom-card {
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid #f35525;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    width: 100%; /* so it aligns with table width */
+    font-family: Arial, sans-serif;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .accent-bar {
+    width: 8px;
+    height: 100%;
+    background-color: #f35525;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .card-content {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+  
+  .card-content strong {
+    color: #f35525;
+  }
+  

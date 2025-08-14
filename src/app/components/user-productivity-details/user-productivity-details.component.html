@@ -1,0 +1,31 @@
+<div class="productivity-container" [ngClass]="colorMode">
+    <div class="top-bar">
+        <button class="toggle-btn"
+                (click)="toggleMode()"
+                [ngClass]="colorMode">
+                <span *ngIf="colorMode === 'lightMode'">🌙 Dark mode</span>
+                <span *ngIf="colorMode === 'darkMode'">💡 Light mode</span>
+                </button>
+    </div>
+    
+    <h2> Productivity of {{ userData.userName }}</h2>
+    
+    <div class="charts-wrapper">
+        <div class="chart-card" [ngClass]="colorMode">
+            <h4> Goal Completion</h4>
+            <canvas baseChart
+                [data]="{ labels: pieChartLabels, datasets: [{ data: pieChartData }] }"
+                [options]="pieChartOptions"
+                chartType="pie">
+            </canvas>
+        </div>
+        <div class="chart-card" [ngClass]="colorMode">
+            <h4> Completion %</h4>
+                <canvas baseChart
+                    [data]="{ labels: ['Progress'], datasets: [{ data: barChartData, label: 'Done %' }] }"
+                    [options]="barChartOptions"
+                    chartType="bar">
+                </canvas>
+        </div>
+    </div>
+</div>

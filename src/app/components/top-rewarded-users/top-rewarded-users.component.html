@@ -1,0 +1,11 @@
+<div class="top-users-container">
+    <div class="user-card" *ngFor="let user of topRewardedUsers">
+      <div class="card-header">
+        {{ user.name }}
+      </div>
+      <div class="card-body">
+        <strong>Reward Count:</strong> {{ user.rewardCount }}
+      </div>
+    </div>
+  </div>
+  
