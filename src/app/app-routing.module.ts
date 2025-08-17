@@ -20,70 +20,73 @@ import { UserListComponent } from './components/user-list/user-list.component';
 
 import { UserProductivityDetailsComponent } from './components/user-productivity-details/user-productivity-details.component';
 import { TopRewardedUsersComponent } from './components/top-rewarded-users/top-rewarded-users.component';
-
-
-
+import { UserProfileComponent } from './FrontOffice/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
-    path:"login",component:LoginComponent
-  },
-  { 
-    path:"",component:AllTemplateFrontComponent ,
-
-      children: [
-
-          {path:"", component:HomeFrontComponent},
-          {path:"task", component:TaskemployeeComponent} ,
-          {
-            path:"chat/:userId",component:ChatComponent
-          },
-          {path:"reward-history/:id",component:RewardHistoryComponent},
-          { path: 'user-productivity/:id', component: UserProductivityDetailsComponent },
-          {path: "top-rewarded-users" , component:TopRewardedUsersComponent},
-          
-    ]
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:"admin",component:AllTemplateBackComponent ,
+    path: '',
+    component: AllTemplateFrontComponent,
 
     children: [
-
-        {path:"stats", component:StatsComponent} ,
-        {path:"tasks", component:ListeComponent} ,
-        {path:"users",component:UserListComponent},
-        {path: "settings" , component:SettingsComponent}
-    ]
+      { path: '', component: HomeFrontComponent },
+      { path: 'task', component: TaskemployeeComponent },
+      {
+        path: 'chat/:userId',
+        component: ChatComponent,
+      },
+      { path: 'reward-history/:id', component: RewardHistoryComponent },
+      {
+        path: 'user-productivity/:id',
+        component: UserProductivityDetailsComponent,
+      },
+      { path: 'top-rewarded-users', component: TopRewardedUsersComponent },
+    ],
   },
   {
-    path:"TasksList",component:TaskComponent
+    path: 'admin',
+    component: AllTemplateBackComponent,
+
+    children: [
+      { path: 'stats', component: StatsComponent },
+      { path: 'tasks', component: ListeComponent },
+      { path: 'users', component: UserListComponent },
+      { path: 'settings', component: SettingsComponent },
+    ],
   },
   {
-    path:"register",component:RegisterComponent
+    path: 'TasksList',
+    component: TaskComponent,
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
 
   {
-    path:"forgetpassword",component:ForgetPasswordComponent
+    path: 'forgetpassword',
+    component: ForgetPasswordComponent,
   },
 
- 
   {
-    path:"goals",component:GoalsComponent
+    path: 'goals',
+    component: GoalsComponent,
   },
   {
-    path:"health",component:HealthReminderComponent
+    path: 'health',
+    component: HealthReminderComponent,
   },
-  
- 
-  
-
-  
-  
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

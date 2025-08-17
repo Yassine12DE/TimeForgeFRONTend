@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-  private baseUrl = "http://localhost:8089"; // URL de base de l'API
+  private baseUrl = 'http://localhost:8089'; // URL de base de l'API
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Récupérer la liste des tâches
   TaskList(): Observable<any> {
@@ -17,6 +17,13 @@ export class TaskService {
 
   // Ajouter un objectif et l'assigner à une tâche
   addGoalandassigntotask(GoalData: any, TaskId: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/api/goals/add/${TaskId}`, GoalData);
+    return this.http.post<any>(
+      `${this.baseUrl}/api/goals/add/${TaskId}`,
+      GoalData
+    );
+  }
+
+  updateTask(task: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/tasks/${task?.id}`, task);
   }
 }

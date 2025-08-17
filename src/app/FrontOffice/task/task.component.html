@@ -7,6 +7,7 @@
         <th>ID</th>
         <th>Title</th>
         <th>Description</th>
+        <th>Task Credit</th>
         <th>Status</th>
         <th>Actions</th>
       </tr>
@@ -16,9 +17,21 @@
         <td>{{ task.id }}</td>
         <td>{{ task.name }}</td>
         <td>{{ task.description }}</td>
+        <td>{{ task.taskCredit }}</td>
         <td>{{ task.status }}</td>
         <td>
-          <button class="btn btn-primary" (click)="openDrawer(task)">Assign Goal</button>
+          <div class="btn btn-group btn-group-sm">
+            <button class="btn btn-primary" (click)="openDrawer(task)">
+              Assign Goal
+            </button>
+            <button
+              [disabled]="task?.status == 'DONE'"
+              (click)="updateTask(task)"
+              class="btn btn-success"
+            >
+              <i class="bi bi-check"></i> Done
+            </button>
+          </div>
         </td>
       </tr>
     </tbody>
@@ -38,11 +51,20 @@
   <div class="drawer-body">
     <!-- Title -->
     <label>Title</label>
-    <input type="text" [(ngModel)]="title" class="form-control" placeholder="Enter Goal Title" />
+    <input
+      type="text"
+      [(ngModel)]="title"
+      class="form-control"
+      placeholder="Enter Goal Title"
+    />
 
     <!-- Description -->
     <label>Description</label>
-    <textarea [(ngModel)]="description" class="form-control" placeholder="Enter Goal Description"></textarea>
+    <textarea
+      [(ngModel)]="description"
+      class="form-control"
+      placeholder="Enter Goal Description"
+    ></textarea>
 
     <!-- Start Date -->
     <label>Start Date</label>
@@ -61,7 +83,9 @@
     </select>
 
     <!-- Buttons -->
-    <button class="btn btn-success mt-2" (click)="assignGoal()">Save Goal</button>
+    <button class="btn btn-success mt-2" (click)="assignGoal()">
+      Save Goal
+    </button>
     <button class="btn btn-danger mt-2" (click)="closeDrawer()">Close</button>
   </div>
 </div>

@@ -36,6 +36,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { FilterPipe } from './filter.pipe';
 import { UserProductivityDetailsComponent } from './components/user-productivity-details/user-productivity-details.component';
 import { TopRewardedUsersComponent } from './components/top-rewarded-users/top-rewarded-users.component';
+import { UserProfileComponent } from './FrontOffice/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { TopRewardedUsersComponent } from './components/top-rewarded-users/top-r
     UserListComponent,
     FilterPipe,
     UserProductivityDetailsComponent,
-    TopRewardedUsersComponent
+    TopRewardedUsersComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

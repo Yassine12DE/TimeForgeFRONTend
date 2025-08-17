@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent  implements OnInit {
+export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
 
@@ -21,7 +21,7 @@ export class LoginComponent  implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       mail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -30,21 +30,19 @@ export class LoginComponent  implements OnInit {
 
     this.authService.login(this.loginForm.value).subscribe({
       next: (res) => {
+        console.log(res);
         this.authService.saveToken(res.accessToken);
         if (res.role === 'ROLE_ADMIN') {
-         window.location.href ='/admin/tasks';
-        }else if (res.role === 'ROLE_EMPLOYEE') {
-         window.location.href ='/task';
+          window.location.href = '/admin/tasks';
+        } else if (res.role === 'ROLE_EMPLOYEE') {
+          window.location.href = '/task';
+        } else if (res.role === 'ROLE_TEAMLEAD') {
+          window.location.href = '/admin/tasks';
         }
-        else if (res.role === 'ROLE_TEAMLEAD') {
-         window.location.href ='/admin/tasks';
-        }
-       
-        console.log(res);        
       },
       error: () => {
         this.errorMessage = 'Identifiants invalides. Veuillez réessayer.';
-      }
+      },
     });
   }
 }
